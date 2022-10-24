@@ -1,26 +1,30 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div id="comzone">
+    Section commentaires
   </div>
 </template>
 
 <script>
-
-
-
 export default {
-  name: 'About',
+  name: "SectionComs",
   created() {},
   data() {
     return {};
   },
   props: {},
   methods: {},
-  components: { },
 };
-
 </script>
 
 <style lang="css" scoped>
+
+#comzone {
+  width: 25vw;
+  height: 25vh;
+
+  background-color: brown;
+}
+
+
 
 </style>

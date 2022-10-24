@@ -2,8 +2,9 @@
 
   <div id="topzone">
     <nav id="navzone">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
+      <router-link to="/sneakervue">Sneaker</router-link>
     </nav>
     
     <div id="searchbar">
@@ -29,8 +30,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
-
 #topzone{
   height: fit-content;
   background-color: #222;
@@ -38,6 +37,34 @@ export default {
   top: 0;
 }
 
+#navzone{
+  
+  background-color: #222;
+
+  padding: 1vw;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+  font-size: 1.7vh;
+  font-weight: bold;
+  background-color: white;
+  padding: 1vh;
+  border-radius: 1vh;
+  margin: 1vh;
+}
+
+a:hover {
+  color: white;
+  background-color: #222;
+  border: 1px solid white;
+}
+a.router-link-exact-active{
+  color: white;
+  background-color: #222;
+  border: 1px solid white;
+}
 
 
 #searchbar {

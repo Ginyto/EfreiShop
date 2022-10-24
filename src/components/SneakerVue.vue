@@ -1,10 +1,11 @@
 <template>
+  <div id="itemzone">
 
-  <div id="sneakzone">
+    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0e7fc8f3-76b7-4631-b147-4dad4b1ff241/chaussure-air-jordan-1-mid-6L9QW1.png" alt="Photo">
+    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0fd4ce0b-1657-4a31-b670-3d925774c2a3/chaussure-air-jordan-1-mid-6L9QW1.png" alt="Photo">
 
-    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/af4e8cbb-e93a-4652-8f85-93d6515390ff/chaussure-de-basketball-renew-elevate-3-GLq50X.png" alt="Photo">
+    <div id="info">
 
-    <div id="info" >
       <div id="sectinfo">
         <div>Marque : Nike </div>
         <div>Model : Jordan </div>
@@ -29,13 +30,20 @@
 
       <div id="sectbtn">
         <div id="plusmoins">
-          <button id="moins" @click="moins"> <Icon icon="line-md:minus-circle-twotone"></Icon> </button>
-            <div id="quantite">{{qte}}</div>
-          <button id="plus" @click="plus"> <Icon icon="line-md:plus-circle-twotone"></Icon> </button>
+          <button id="moins" @click="moins">
+            <Icon icon="line-md:minus-circle-twotone"></Icon>
+          </button>
+          <div id="quantite">{{ qte }}</div>
+          <button id="plus" @click="plus">
+            <Icon icon="line-md:plus-circle-twotone"></Icon>
+          </button>
         </div>
-        <button id="btnadd">Add to cart  <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
+        <button id="btnadd">Add to cart <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
       </div>
     </div>
+
+    <SectionComs />
+
 
   </div>
 
@@ -43,31 +51,18 @@
 
 <script>
 
+import SectionComs from "./SectionComs.vue";
+
 export default {
-  name: "Sneaker",
+  name: "SneakerVue",
   created() {},
   data() {
-    return {
-
-      qte : 1
-
-    };
+    return {};
   },
   props: {},
-
-
-  methods: {
-
-    plus(){
-      this.qte++
-    },
-
-    moins(){
-      if(this.qte > 1){
-        this.qte--
-      }
-    }
-
+  methods: {},
+  components: {
+    SectionComs
   }
   
 };
@@ -75,35 +70,30 @@ export default {
 
 <style lang="css" scoped>
 img{
-  width: 22vw;
-  min-width: 260px;
+  width: 60vh;
   border-radius: 1vh;
-  cursor: pointer;
 }
 
+#itemzone {
+  width: 100vw;
+  border: solid 1px rgb(242, 96, 96);
+  display: flex;
+  align-items: flex-start;
+}
 
-#sneakzone {
-  width: fit-content;
-  height: fit-content;
+#sectinfo {
+  padding: 1vh;
   display: flex;
   flex-direction: column;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 1vh;
-
-  padding: 1vh;
-
-  margin: 1vh;
-
+  align-items: flex-start;
 }
 
 #info {
   width: 100%;
-  height : fit-content;
-  display : flex;
+  height: fit-content;
+  display: flex;
 
   justify-content: space-between;
-
-  margin-top: 1vh;
 
 
   color: white;
@@ -113,13 +103,6 @@ img{
   border: 1px solid rgb(255, 255, 255);
   border-radius: 1vh;
 
-}
-
-#sectinfo {
-  padding: 1vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 #sectbtn {
@@ -149,14 +132,14 @@ button {
   justify-content: center;
 }
 
-#secsize {
+#secsize{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#size {
+#size{
 
   border-radius: 1vh;
 

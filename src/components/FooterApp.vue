@@ -19,8 +19,8 @@ export default {
 <style lang="css" scoped>
 
 #footzone {
-  color: rgb(255, 255, 255);
-  background: linear-gradient(90deg,rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+  color: #222;
+  background: linear-gradient(90deg,#222 0%, rgb(255, 255, 255) 100%);
   border-radius: 1vh
 }
 
