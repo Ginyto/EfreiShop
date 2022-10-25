@@ -1,8 +1,14 @@
 <template>
   <div id="itemzone">
 
-    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0e7fc8f3-76b7-4631-b147-4dad4b1ff241/chaussure-air-jordan-1-mid-6L9QW1.png" alt="Photo">
-    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0fd4ce0b-1657-4a31-b670-3d925774c2a3/chaussure-air-jordan-1-mid-6L9QW1.png" alt="Photo">
+    <div id="images">
+      <img
+        src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0e7fc8f3-76b7-4631-b147-4dad4b1ff241/chaussure-air-jordan-1-mid-6L9QW1.png"
+        alt="Photo">
+      <img
+        src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0fd4ce0b-1657-4a31-b670-3d925774c2a3/chaussure-air-jordan-1-mid-6L9QW1.png"
+        alt="Photo">
+    </div>
 
     <div id="info">
 
@@ -42,8 +48,7 @@
       </div>
     </div>
 
-    <SectionComs />
-
+    <!-- <SectionComs /> -->
 
   </div>
 
@@ -74,11 +79,23 @@ img{
   border-radius: 1vh;
 }
 
+#images{
+  display: flex;
+
+  width: 96vw;
+
+  justify-content: space-around;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
 #itemzone {
   width: 100vw;
   border: solid 1px rgb(242, 96, 96);
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 #sectinfo {

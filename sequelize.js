@@ -1,5 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
+require('dotenv').config()
+
 
 //Importing the models
 // const PrescriptionModel = require('./models/Prescription');
@@ -8,33 +10,33 @@ const bcrypt = require('bcrypt');
 
 
 
-// const database = "e6b797zu41z5pbpk";
-// const username = "tgivu0yxfwk9f01j";
-// const password = "o3bpsiay67osqvk2";
-// const host = "oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+const database = process.env.DB;
+const username = process.env.USERNAME
+const password = process.env.PASSWORD;
+const host = process.env.DB_HOST;
 
 
-// /**
-//  * Connect to the database 
-//  * 
-//  */
-// const sequelize = new Sequelize(database, username, password, {
+/**
+ * Connect to the database 
+ * 
+ */
+const sequelize = new Sequelize(database, username, password, {
 
-//     dialect: "mysql",
-//     host: host
+    dialect: "mysql",
+    host: host
 
-// });
+});
 
 
 
-//authentication
-// try {
-//     sequelize.authenticate();
-//     console.log(`Connection has been established successfully to ${database} via ${username} on ${host}`);
 
-// } catch (error) {
-//     console.error(`Unable to connect to ${database} via ${username} on ${host}`, error)
-// }
+try {
+    sequelize.authenticate();
+    console.log(`Connection has been established successfully to ${database} via ${username} on ${host}`);
+
+} catch (error) {
+    console.error(`Unable to connect to ${database} via ${username} on ${host}`, error)
+}
 
 
 //Creating the models and syncing them with the database
