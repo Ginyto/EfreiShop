@@ -6,8 +6,7 @@ require('dotenv').config()
 //Importing the models
 // const PrescriptionModel = require('./models/Prescription');
 // const MedicineModel = require('./models/Medicine');
-// const UserModel = require('./models/User');
-
+const UserModel = require('./models/User');
 
 
 const database = process.env.DB;
@@ -42,7 +41,7 @@ try {
 //Creating the models and syncing them with the database
 // const Prescription = PrescriptionModel(sequelize, DataTypes);
 // const Medicine = MedicineModel(sequelize, DataTypes);
-// const User = UserModel(sequelize, DataTypes);
+const User = UserModel(sequelize, DataTypes);
 
 
 /**
@@ -52,8 +51,6 @@ try {
 const syncDB = () => {
 
     return sequelize.sync({ force: false }).then(() => {
-
-
 
     }, (err) => {
         console.log('An error occurred while creating the table:', err)
