@@ -26,4 +26,4 @@ app.get(/.*/, (req, res) => {
 
 
 
-app.listen(`0.0.0.0: $PORT`, () => { console.log(`Server started on port ${PORT}`) })
+app.listen(`0.0.0.0: ${PORT}`, () => { console.log(`Server started on port ${PORT}`) })
