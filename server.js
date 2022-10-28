@@ -6,8 +6,6 @@ const cors = require('cors');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
-
 const apirest = require('./routes/api.js')
 
 
@@ -26,4 +24,4 @@ app.get(/.*/, (req, res) => {
 
 
 
-app.listen(`0.0.0.0: ${PORT}`, () => { console.log(`Server started on port ${PORT}`) })
+app.listen( () => { console.log(`Server started on port ${PORT}`) })
