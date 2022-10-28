@@ -21,6 +21,12 @@ const routes = [
     name: 'sneakervue',
     component: () => import('../components/SneakerVue.vue')
   },
+
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/CartView.vue')
+  },
 ]
 
 const router = createRouter({

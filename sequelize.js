@@ -7,6 +7,7 @@ require('dotenv').config()
 // const PrescriptionModel = require('./models/Prescription');
 // const MedicineModel = require('./models/Medicine');
 const UserModel = require('./models/User');
+const SneakerModel = require('./models/Sneaker');
 
 
 const database = process.env.DB;
@@ -42,6 +43,7 @@ try {
 // const Prescription = PrescriptionModel(sequelize, DataTypes);
 // const Medicine = MedicineModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
+const Sneaker = SneakerModel(sequelize, DataTypes);
 
 
 /**
@@ -61,7 +63,7 @@ const syncDB = () => {
 }
 
 module.exports = {
-    syncDB, 
+    syncDB, User, Sneaker
 }
 
 

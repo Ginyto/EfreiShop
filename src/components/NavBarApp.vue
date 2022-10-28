@@ -1,16 +1,16 @@
 <template>
 
   <div id="topzone">
-
-    
     
     <nav id="navzone">
 
       <AuthApp />
 
+      <h1>EfreiShop</h1>
+
       <div id="routers">
         <router-link to="/">Home</router-link>
-        <router-link to="/about">Cart</router-link>
+        <router-link to="/cart">Cart</router-link>
         <router-link to="/sneakervue">Sneaker</router-link>
       </div>
 
@@ -43,6 +43,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    margin-left: 1em;
+}
 
 #topzone{
   width: 100%;
@@ -81,13 +90,25 @@ a {
 
 a:hover {
   color: white;
+  text-decoration: none;
+  font-size: 1.7vh;
+  font-weight: bold;
   background-color: #222;
-  border: 1px solid white;
+  padding: 1vh;
+  border-radius: 1vh;
+  margin: 1vh;
+  border: white solid 1px;
 }
 a.router-link-exact-active{
   color: white;
+  text-decoration: none;
+  font-size: 1.7vh;
+  font-weight: bold;
   background-color: #222;
-  border: 1px solid white;
+  padding: 1vh;
+  border-radius: 1vh;
+  margin: 1vh;
+  border: white solid 1px;
 }
 
 
