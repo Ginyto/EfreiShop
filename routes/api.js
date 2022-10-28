@@ -15,7 +15,7 @@ const User = require('../models/User');
 
 
 
-Sequelize.syncDB()
+// Sequelize.syncDB()
 
 
 //TEST
