@@ -21,8 +21,28 @@ import SneakerApp from '@/components/SneakerApp.vue';
 export default {
   name: 'HomeView',
 
+  data() {
+    return {
+      sneakers : []
+    };
+  },
+
   components: {
     SneakerApp
+  },
+
+  methods: {
+  },
+
+  computed: {
+    
+  },
+
+  mounted() {
+  },
+
+  created() {
+
   }
 
 }

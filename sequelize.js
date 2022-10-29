@@ -50,20 +50,15 @@ const Sneaker = SneakerModel(sequelize, DataTypes);
  * Sync the models with the database
  * 
  */
-const syncDB = async () => {
+const syncDB = () => {
 
-    try {
-        await sequelize.sync({ force: false });
-        console.log('Database & tables created!');
-    } catch (err) {
-        console.log(err);
-    }
+    return sequelize.sync({ force: false }).then(() => {
+        console.log('Database & tables created!')
+    }).catch((err) => {
+        console.log(err)
+    })
 
 }
-
-
-
-
 
 
 
