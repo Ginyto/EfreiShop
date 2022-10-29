@@ -53,10 +53,14 @@ const Sneaker = SneakerModel(sequelize, DataTypes);
 const syncDB = () => {
 
     return sequelize.sync({ force: false }).then(() => {
-        console.log('Database & tables created!')
-    }).catch((err) => {
-        console.log(err)
+
+
+
+    }, (err) => {
+        console.log('An error occurred while creating the table:', err)
     })
+
+
 
 }
 
