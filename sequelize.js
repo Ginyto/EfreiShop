@@ -24,7 +24,8 @@ const sequelize = new Sequelize(database, username, password, {
 
     dialect: "mysql",
     host: host,
-    port: 6661
+    port: 6661,
+    address: "0.0.0.0"
 });
 
 
