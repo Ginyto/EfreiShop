@@ -4,16 +4,16 @@ require('dotenv').config()
 
 
 //Importing the models
-// const PrescriptionModel = require('./models/Prescription');
-// const MedicineModel = require('./models/Medicine');
 const UserModel = require('./models/User');
 const SneakerModel = require('./models/Sneaker');
+
 
 
 const database = process.env.DB;
 const username = process.env.USERNAME
 const password = process.env.PASSWORD;
 const host = process.env.DB_HOST;
+const port = process.env.DBPORT;
 
 
 /**
@@ -23,7 +23,8 @@ const host = process.env.DB_HOST;
 const sequelize = new Sequelize(database, username, password, {
 
     dialect: "mysql",
-    host: host
+    host: host,
+    port: port
 
 });
 
@@ -32,7 +33,7 @@ const sequelize = new Sequelize(database, username, password, {
 
 try {
     sequelize.authenticate();
-    console.log(`Connection has been established successfully to ${database} via ${username} on ${host}`);
+    console.log(`Connection has been established successfully to ${database} via ${username} on ${host} on port ${port}.`);
 
 } catch (error) {
     console.error(`Unable to connect to ${database} via ${username} on ${host}`, error)
@@ -54,6 +55,8 @@ const syncDB = () => {
 
     return sequelize.sync({ force: false }).then(() => {
 
+
+
     }, (err) => {
         console.log('An error occurred while creating the table:', err)
     })
@@ -63,7 +66,7 @@ const syncDB = () => {
 }
 
 module.exports = {
-    syncDB, User, Sneaker
+    sequelize, syncDB, User, Sneaker
 }
 
 
