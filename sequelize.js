@@ -24,8 +24,7 @@ const sequelize = new Sequelize(database, username, password, {
 
     dialect: "mysql",
     host: host,
-    port: 6661,
-    address: "0.0.0.0"
+    port: 6661
 });
 
 
@@ -51,13 +50,14 @@ const Sneaker = SneakerModel(sequelize, DataTypes);
  * Sync the models with the database
  * 
  */
-const syncDB = () => {
+const syncDB = async () => {
 
-    return sequelize.sync({ force: false }).then(() => {
-        console.log('Database & tables created!')
-    }).catch((err) => {
-        console.log(err)
-    })
+    try {
+        await sequelize.sync({ force: false });
+        console.log('Database & tables created!');
+    } catch (err) {
+        console.log(err);
+    }
 
 }
 
