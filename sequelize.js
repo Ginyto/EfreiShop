@@ -26,6 +26,13 @@ const sequelize = new Sequelize(database, username, password, {
     host: host,
     port: 6661
 
+}, (err) => {
+    if (err) {
+        console.log('Unable to connect to the database:', err)
+    } else {
+        console.log('Connection has been established successfully.')
+    }
+
 });
 
 
