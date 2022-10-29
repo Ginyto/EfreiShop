@@ -25,14 +25,6 @@ const sequelize = new Sequelize(database, username, password, {
     dialect: "mysql",
     host: host,
     port: 6661
-
-}, (err) => {
-    if (err) {
-        console.log('Unable to connect to the database:', err)
-    } else {
-        console.log('Connection has been established successfully.')
-    }
-
 });
 
 
@@ -61,16 +53,19 @@ const Sneaker = SneakerModel(sequelize, DataTypes);
 const syncDB = () => {
 
     return sequelize.sync({ force: false }).then(() => {
-
-
-
-    }, (err) => {
-        console.log('An error occurred while creating the table:', err)
+        console.log('Database & tables created!')
+    }).catch((err) => {
+        console.log(err)
     })
 
-
-
 }
+
+
+
+
+
+
+
 
 module.exports = {
     sequelize, syncDB, User, Sneaker
