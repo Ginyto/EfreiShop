@@ -40,7 +40,15 @@ router.get('/sneakers', (req, res) => {
 //GET
 router.get('/cart', (req, res) => {
 
-<<<<<<< HEAD
+    Cart.findAll().then(cart => {
+        res.send(cart)
+        
+    }, (err) => {
+        res.status(500).send(err.message)
+    })
+})
+
+
 //POST 
 router.post('/addsneaker',(req, res) => {
     Cart.create({ 
@@ -55,17 +63,6 @@ router.post('/addsneaker',(req, res) => {
 
 
 
-
-
-=======
-    Cart.findAll().then(cart => {
-        res.send(cart)
-        
-    }, (err) => {
-        res.status(500).send(err.message)
-    })
-})
->>>>>>> 9c6f246d0655be0c048091ce6ee823ca73d3ad33
 
 
 
