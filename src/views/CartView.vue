@@ -1,11 +1,11 @@
 <template>
   <div>
-    {{cart.userID}}
+    
     <store-app></store-app>
 
 
       <div class="cart">
-        <div style="color:blue;">{{cart.sneakerID}}</div>
+
       </div>
 
     
@@ -21,21 +21,31 @@ export default {
   created (){
     this.getCart();
   }, 
+
+  
   data() {
     return {
-      cart: {
-
-      }
+      id:null,
+      cart: {}
     };
   },
-  props: {},
+
+
+  props: {
+  },
   methods: {
     async getCart(){
-      await axios.get("http://localhost:3000/sneak/cart").then (res=>{
-        this.cart = res.data;
-        console.log(this.cart)    
-      })
+      await axios.get("http://localhost:3000/sneak/carts").then (res=>{
 
+        const currentCart = res.data.cart
+        const cart = { id:currentCart.id}
+        this.cart =  JSON.parse(sessionStorage.getItem('cart'))
+
+        console.log(this.cart);
+
+        //this.cart=  JSON.parse(sessionStorage.getItem('cart'))
+
+      }) 
     }
   },
 };

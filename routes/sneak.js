@@ -38,10 +38,10 @@ router.get('/sneakers', (req, res) => {
 })
 
 //GET
-router.get('/cart', (req, res) => {
+router.get('/carts', (req, res) => {
 
-    Cart.findAll().then(cart => {
-        res.send(cart)
+    Cart.findAll().then(carts => {
+        res.send(carts)
         
     }, (err) => {
         res.status(500).send(err.message)
