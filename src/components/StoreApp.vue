@@ -1,9 +1,13 @@
 <template>
+
   <div id="store">
+
     <div v-for="sneaker in sneakers" :key="sneaker.id">
       <SneakerApp :sneak="sneaker" />
     </div>
+
   </div>
+
 </template>
 
 <script>
@@ -22,18 +26,21 @@ export default {
   data() {
     return {
 
-      sneakers: []
+      sneakers: [],
+
+      url : "http://localhost:3000/sneak/"
 
     };
   },
   props: {
     
   },
+
   methods: {
 
     async getAllSneakers() {
       
-      await axios.get('http://localhost:3000/api/sneakers')
+      await axios.get(this.url + 'sneakers')
         .then(response => {
           this.sneakers = response.data;
 
@@ -46,6 +53,7 @@ export default {
     }
     
   },
+
   components: { SneakerApp }
 
 };

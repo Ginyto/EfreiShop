@@ -12,6 +12,7 @@ const { Op } = require("sequelize");
 //Importing the models
 const { User } = require('../sequelize');
 const { Sneaker } = require('../sequelize');
+const { Cart } = require('../sequelize');
 
 
 
@@ -35,6 +36,7 @@ router.get('/sneakers', (req, res) => {
     })
 
 })
+
 
 
 

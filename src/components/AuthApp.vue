@@ -11,7 +11,9 @@ export default {
 
   created() {},
   data() {
-    return {};
+    return {
+      url : "http://localhost:3000/login/"
+    };
   },
 
   props: {},

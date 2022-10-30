@@ -6,6 +6,7 @@ require('dotenv').config()
 //Importing the models
 const UserModel = require('./models/User');
 const SneakerModel = require('./models/Sneaker');
+const CartModel = require('./models/Cart');
 
 
 
@@ -44,6 +45,7 @@ try {
 // const Medicine = MedicineModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
 const Sneaker = SneakerModel(sequelize, DataTypes);
+const Cart = CartModel(sequelize, DataTypes);
 
 
 /**
@@ -68,7 +70,7 @@ const syncDB = () => {
 
 
 module.exports = {
-    sequelize, syncDB, User, Sneaker
+    sequelize, syncDB, User, Sneaker, Cart
 }
 
 
