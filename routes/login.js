@@ -38,8 +38,8 @@ router.post('/signup', (req, res) => {
             name: req.query.name,
             password: hash,
             lastname: req.query.lastname,
-            identification: req.query.identification,
-            role: req.query.role
+            mail: req.query.mail,
+            
 
         }).then(user => {
             res.json({ message: 'Signup successful', user: user, sign: true })
@@ -54,13 +54,13 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
 
-    const name = req.query.identification
+    const mail = req.query.mail
     const mdp = req.query.password
 
 
     User.findOne({
         where: {
-            identification: name
+            mail: mail
         }
     }).then(user => {
 
@@ -82,7 +82,7 @@ router.post('/login', (req, res) => {
             })
         }
         else {
-            res.json({ message: 'Login failed -> Wrong Username', auth: false })
+            res.json({ message: 'Login failed -> Wrong mail', auth: false })
         }
     })
 
