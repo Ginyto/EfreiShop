@@ -8,13 +8,16 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-const apirest = require('./routes/api.js')
+const sneak = require('./routes/sneak.js')
+const login = require('./routes/login.js')
 
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', apirest);
+app.use('/sneak', sneak);
+app.use('/login', login);
+
 
 
 app.use(serveStatic(path.join(__dirname, '/dist')));

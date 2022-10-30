@@ -90,6 +90,7 @@ export default {
 img{
   width: 22vw;
   min-width: 260px;
+  height: 49vh;
   border-radius: 1vh;
   cursor: pointer;
 }

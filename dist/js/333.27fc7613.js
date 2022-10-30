@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkefreishop"]=self["webpackChunkefreishop"]||[]).push([[333],{4333:function(e,r,n){n.r(r),n.d(r,{default:function(){return i}});var t=n(3396);const u=(0,t._)("h1",null,"Cart",-1),a=[u];function s(e,r,n,u,s,c){return(0,t.wg)(),(0,t.iD)("div",null,a)}var c={name:"Cart",created(){},data(){return{}},props:{},methods:{}},o=n(89);const f=(0,o.Z)(c,[["render",s]]);var i=f}}]);
-//# sourceMappingURL=333.27fc7613.js.map

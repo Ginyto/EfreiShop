@@ -25,44 +25,6 @@ router.get('/', (req, res) => {
 
 
 //GET
-router.get('/sneakers', (req, res) => {
-
-    Sneaker.findAll().then(sneakers => {
-        res.send(sneakers)
-        
-    }, (err) => {
-        res.status(500).send(err.message)
-    })
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
