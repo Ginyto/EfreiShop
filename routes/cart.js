@@ -12,7 +12,6 @@ const { Op } = require("sequelize");
 //Importing the models
 const { User } = require('../sequelize');
 const { Sneaker } = require('../sequelize');
-const { Cart } = require('../sequelize');
 
 
 
@@ -25,46 +24,20 @@ router.get('/', (req, res) => {
 })
 
 
-//GET
-router.get('/sneakers', (req, res) => {
 
-    Sneaker.findAll().then(sneakers => {
-        res.send(sneakers)
+//GET 
+router.get('/', (req, res) => {
+    res.send('API is working')
+})
+
+
+router.get('/cart', (req, res) => {
+
+    Sneaker.findAll().then(cart => {
+        res.send(cart)
         
     }, (err) => {
         res.status(500).send(err.message)
     })
 
 })
-
-//GET
-router.get('/carts', (req, res) => {
-
-    Cart.findAll().then(carts => {
-        res.send(carts)
-        
-    }, (err) => {
-        res.status(500).send(err.message)
-    })
-})
-
-
-//POST 
-router.post('/addsneaker',(req, res) => {
-    Cart.create({ 
-        userID: 1,
-        sneakerID : 1
-    })  .then()
-        .catch(err => {
-        res.send(err)
-    }
-    )
-})
-
-
-
-
-
-
-
-module.exports = router;
