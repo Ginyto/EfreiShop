@@ -10,11 +10,11 @@ const CartModel = require('./models/Cart');
 
 
 
-const database = process.env.DB;
-const username = process.env.USERNAME
-const password = process.env.PASSWORD;
-const host = process.env.DB_HOST;
-const port = process.env.DBPORT;
+const database = "f10asnaepr3n29ua";
+const username = "dq8qo54tr7un498t";
+const password = "vvitv6skjmq9jaxq";
+const host = "ltnya0pnki2ck9w8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+const port = "3306";
 
 
 /**

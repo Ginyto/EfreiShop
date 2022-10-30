@@ -37,7 +37,16 @@ router.get('/sneakers', (req, res) => {
 
 })
 
+//GET
+router.get('/cart', (req, res) => {
 
+    Cart.findAll().then(cart => {
+        res.send(cart)
+        
+    }, (err) => {
+        res.status(500).send(err.message)
+    })
+})
 
 
 

@@ -32,7 +32,7 @@
             <div id="quantite">{{qte}}</div>
           <button id="plus" @click="plus"> <Icon icon="line-md:plus-circle-twotone"></Icon> </button>
         </div>
-        <button id="btnadd">Add to cart  <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
+        <button id="btnadd" >Add to cart <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
       </div>
     </div>
 
