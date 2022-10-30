@@ -1,11 +1,10 @@
 <template>
   <div>
-    
+    {{cart}}
     <store-app></store-app>
 
 
       <div class="cart">
-
       </div>
 
     
@@ -21,31 +20,21 @@ export default {
   created (){
     this.getCart();
   }, 
-
-  
   data() {
     return {
-      id:null,
-      cart: {}
+      cart: {
+
+      }
     };
   },
-
-
-  props: {
-  },
+  props: {},
   methods: {
     async getCart(){
       await axios.get("http://localhost:3000/sneak/carts").then (res=>{
+        this.cart = res.data;
+        console.log(this.cart)    
+      })
 
-        const currentCart = res.data.cart
-        const cart = { id:currentCart.id}
-        this.cart =  JSON.parse(sessionStorage.getItem('cart'))
-
-        console.log(this.cart);
-
-        //this.cart=  JSON.parse(sessionStorage.getItem('cart'))
-
-      }) 
     }
   },
 };
