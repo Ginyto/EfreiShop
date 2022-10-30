@@ -23,3 +23,21 @@ router.get('/', (req, res) => {
     res.send('API is working')
 })
 
+
+
+//GET 
+router.get('/', (req, res) => {
+    res.send('API is working')
+})
+
+
+router.get('/cart', (req, res) => {
+
+    Sneaker.findAll().then(cart => {
+        res.send(cart)
+        
+    }, (err) => {
+        res.status(500).send(err.message)
+    })
+
+})
