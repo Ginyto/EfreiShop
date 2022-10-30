@@ -1,48 +1,25 @@
 <template>
   <div id="homezone">
 
+    
+    <StoreApp />
 
-    <div id="store">
-      <SneakerApp />
-      <SneakerApp />
-      <SneakerApp />
-      <SneakerApp />
-      <SneakerApp />
-    </div>
 
   </div>
 </template>
 
 <script>
-import SneakerApp from '@/components/SneakerApp.vue';
-// @ is an alias to /src
 
+// @ is an alias to /src
+import StoreApp from "@/components/StoreApp.vue";
 
 export default {
   name: 'HomeView',
 
-  data() {
-    return {
-      sneakers : []
-    };
-  },
 
   components: {
-    SneakerApp
-  },
-
-  methods: {
-  },
-
-  computed: {
-    
-  },
-
-  mounted() {
-  },
-
-  created() {
-
+    StoreApp
+  
   }
 
 }
@@ -85,15 +62,6 @@ export default {
   border-radius: 1vh;
 }
 
-#store {
-  width: 100%;
-  height: 100%;
-  min-height: fit-content;
-  display: flex;
-  justify-content: center;
-  
-  flex-wrap: wrap;
-  /* background-color: brown; */
-}
+
 
 </style>

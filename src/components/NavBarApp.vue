@@ -17,7 +17,6 @@
     </nav>
     
     <div id="searchbar">
-      <Icon id="loupe" icon="line-md:search-twotone"></Icon>
       <input type="text" placeholder="Search..." />
     </div>
 

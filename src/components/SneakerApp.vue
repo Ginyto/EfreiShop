@@ -1,15 +1,14 @@
 <template>
-
   <div id="sneakzone">
 
-    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/af4e8cbb-e93a-4652-8f85-93d6515390ff/chaussure-de-basketball-renew-elevate-3-GLq50X.png" alt="Photo">
+    <img :src="images[0]" :alt="sneak.name">
 
     <div id="info" >
       <div id="sectinfo">
-        <div>Marque : Nike </div>
-        <div>Model : Jordan </div>
-        <div>Couleur : noir</div>
-        <div>Prix : 299＄ </div>
+        <div>{{sneak.brand}}</div>
+        <div>{{sneak.name}}</div>
+        <div>{{sneak.color}}</div>
+        <div>{{sneak.price}}＄ </div>
       </div>
 
       <div id="secsize">
@@ -45,16 +44,25 @@
 
 export default {
   name: "Sneaker",
-  created() {},
+
+  created() {
+
+    console.log(this.images);
+  },
+  
   data() {
     return {
 
-      qte : 1
+      qte: 1,
+
+      images : this.sneak.images.split('§')
 
     };
   },
-  props: {},
 
+  props: {
+    sneak: Object,
+  },
 
   methods: {
 
@@ -68,12 +76,17 @@ export default {
       }
     }
 
-  }
+  },
+
+  components: {},
+
+  computed: {}
   
 };
 </script>
 
 <style lang="css" scoped>
+
 img{
   width: 22vw;
   min-width: 260px;
@@ -83,12 +96,17 @@ img{
 
 
 #sneakzone {
-  width: fit-content;
-  height: fit-content;
+  width: 24vw;
+  height: 66vh;
   display: flex;
   flex-direction: column;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 1vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   padding: 1vh;
 

@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         images: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false
         },
 

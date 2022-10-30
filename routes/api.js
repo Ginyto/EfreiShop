@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 router.get('/sneakers', (req, res) => {
 
     Sneaker.findAll().then(sneakers => {
-        res.json(sneakers)
+        res.send(sneakers)
         
     }, (err) => {
         res.status(500).send(err.message)
