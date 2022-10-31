@@ -27,6 +27,6 @@ npm run dev
 
 
 ##### lien vers le dépôt GIT :
-
+https://github.com/Ginyto/efreishop
 
 
