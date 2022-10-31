@@ -2,21 +2,15 @@
   <div id="itemzone">
 
     <div id="images">
-      <img
-        src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0e7fc8f3-76b7-4631-b147-4dad4b1ff241/chaussure-air-jordan-1-mid-6L9QW1.png"
-        alt="Photo">
-      <img
-        src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0fd4ce0b-1657-4a31-b670-3d925774c2a3/chaussure-air-jordan-1-mid-6L9QW1.png"
-        alt="Photo">
+      <img :src="images[0]" alt="image1">
+      <img :src="images[1]" alt="image2">
     </div>
 
     <div id="info">
 
       <div id="sectinfo">
-        <div>Marque : Nike </div>
-        <div>Model : Jordan </div>
-        <div>Couleur : noir</div>
-        <div>Prix : 299＄ </div>
+        
+        
       </div>
 
       <div id="secsize">
@@ -56,19 +50,36 @@
 
 <script>
 
-import SectionComs from "./SectionComs.vue";
+import { useSneakersStore } from "../store/sneakers";
+
+const store = useSneakersStore();
 
 export default {
+
   name: "SneakerVue",
-  created() {},
+
+  created() { },
+  
   data() {
-    return {};
+    return {
+      qte: 1,
+
+      images: store.getsneak.images.split('§')
+
+    };
   },
-  props: {},
-  methods: {},
+
+  props: {
+
+  },
+
+  methods: {
+    
+  },
+
   components: {
-    SectionComs
-  }
+
+  },
   
 };
 </script>

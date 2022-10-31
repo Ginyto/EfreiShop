@@ -1,7 +1,7 @@
 <template>
   <div id="sneakzone">
 
-    <img :src="images[0]" :alt="sneak.name">
+    <img :src="images[0]" :alt="sneak.name" @click="openVue()">
 
     <div id="info" >
       <div id="sectinfo">
@@ -42,12 +42,14 @@
 
 <script>
 
+import { useSneakersStore } from "../store/sneakers";
+
+const store = useSneakersStore();
+
 export default {
   name: "Sneaker",
 
   created() {
-
-    console.log(this.images);
   },
   
   data() {
@@ -74,6 +76,14 @@ export default {
       if(this.qte > 1){
         this.qte--
       }
+    },
+
+    openVue() {
+      console.log("openVue");
+
+      store.currentSneaker(this.sneak);
+
+      this.$router.push("/sneakervue");
     }
 
   },
