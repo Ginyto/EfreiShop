@@ -20,13 +20,12 @@
           <Transition name="slide" appear  v-show=!showModal>
             <div class="modal" >
             <input type="text" class="saisieInput" v-model.lazy="mail" placeholder="Mail">
-            <div></div>
+           
             <input type="text" class="saisieInput" v-model.lazy="name"  placeholder="Name">
-            <div></div>
-           <input type="text" class="saisieInput" v-model.lazy="lastname"   placeholder="Lastname">
-           <div></div>
+ 
+           
         <input type="password" class="saisieInput" v-model.lazy="password"  placeholder="Password">
-        <div></div>
+        
         <input type="password" class="saisieInput" v-model.lazy="passwordd" 
           placeholder="Confirm your Password">
           <button class="btn" @click=uploadUser() >  sign up</button>
