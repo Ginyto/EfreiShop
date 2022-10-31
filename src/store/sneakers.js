@@ -16,5 +16,9 @@ export const useSneakersStore = defineStore("sneaker", {
             this.sneak = item
         }
 
-    }
+    },
+
+    persist: true
+
 })
+

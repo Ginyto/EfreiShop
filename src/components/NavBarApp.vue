@@ -11,7 +11,6 @@
       <div id="routers">
         <router-link to="/">Home</router-link>
         <router-link to="/cart">Cart</router-link>
-        <router-link to="/sneakervue">Sneaker</router-link>
       </div>
 
     </nav>

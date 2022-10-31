@@ -2,7 +2,7 @@
 
   <div id="store">
 
-    <div v-for="sneaker in sneakers" :key="sneaker.id">
+    <div v-for="sneaker in sneakers" :key="sneaker.id" div-auto-animate>
       <SneakerApp :sneak="sneaker" />
     </div>
 

@@ -4,11 +4,16 @@ import router from './router'
 import { Icon } from '@iconify/vue'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const app = createApp(App)
+const pinia = createPinia()
+
+pinia.use(piniaPluginPersistedstate)
+
 app.use(router)
 app.use(autoAnimatePlugin)
-app.use(createPinia())
+app.use(pinia)
 app.mount('#app')
 app.component('Icon', Icon)
 
