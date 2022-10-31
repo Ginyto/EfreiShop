@@ -2,16 +2,13 @@
   <div id="authzone">
     <h1  v-show=login >Welcome {{user.name}} </h1>
     <input type="text" class="saisieInput" v-model.lazy="mail" v-show= !login placeholder="Mail">
-   
+
 
         <input type="password" class="saisieInput" v-model.lazy="password" v-show= !login placeholder="Password">
       
-       
-   
+
           
           <button class="btn" @click=loginUser() v-show=!login>  log in </button>
-         
-           
   </div><div>
     <button class="btn" @click=showModall()>showModal </button>
           <transition name="fade" appear>
@@ -20,16 +17,15 @@
           <Transition name="slide" appear  v-show=!showModal>
             <div class="modal" >
             <input type="text" class="saisieInput" v-model.lazy="mail" placeholder="Mail">
-           
+
             <input type="text" class="saisieInput" v-model.lazy="name"  placeholder="Name">
- 
-           
+
         <input type="password" class="saisieInput" v-model.lazy="password"  placeholder="Password">
         
         <input type="password" class="saisieInput" v-model.lazy="passwordd" 
           placeholder="Confirm your Password">
           <button class="btn" @click=uploadUser() >  sign up</button>
-           
+
         </div>
           </Transition>
   </div>
@@ -54,8 +50,8 @@ export default {
     showModal:true,
       close:true,
       login : false,
-       mail: null,
-       password: null,
+      mail: null,
+      password: null,
       name: null,
       lastname: null,
       url : "http://localhost:3000/login/",
@@ -70,7 +66,7 @@ export default {
   props: {},
 
   methods: {
-   
+
     showModall(){
       this.showModal = !this.showModal;
       console.log("ça change")
@@ -93,7 +89,7 @@ export default {
       name: this.name,
       lastname: this.lastname,
       password: this.password,
-     
+
 
     }
 
@@ -163,7 +159,6 @@ if (this.mail != '' && this.password != '') {
     const user = {
 
       id: currentUser.id,
-   
       name: currentUser.name,
       lastname: currentUser.lastname,
       mail: currentUser.mail,
