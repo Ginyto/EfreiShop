@@ -32,7 +32,7 @@
             <div id="quantite">{{sneak.qte}}</div>
           <button id="plus" @click="plus"> <Icon icon="line-md:plus-circle-twotone"></Icon> </button>
         </div>
-        <button id="btnadd">Add to cart  <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
+        <button id="btnadd" @click="addToCart">Add to cart<Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
       </div>
     </div>
 
@@ -43,8 +43,10 @@
 <script>
 
 import { useSneakersStore } from "../store/sneakers";
+import { useCartStore } from "../store/cart";
 
 const store = useSneakersStore();
+const cart = useCartStore();
 
 export default {
   name: "Sneaker",
@@ -83,6 +85,18 @@ export default {
       store.currentSneaker(this.sneak);
 
       this.$router.push("/sneakervue");
+    },
+
+    addToCart() {
+
+      console.log("addToCart");
+
+      for (let i = 0; i < this.sneak.qte; i++) {
+        cart.addProductToCart(this.sneak);
+      }
+
+      console.log(cart.getcart);
+
     }
 
   },
