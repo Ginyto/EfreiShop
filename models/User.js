@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
 
-        identification: {
+        mail: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: {
-                msg: 'This id is already used'
+                msg: 'This mail is already used'
             }
         },
 
