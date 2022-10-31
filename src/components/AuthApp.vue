@@ -10,7 +10,7 @@
 
       <Icon icon="line-md:account-add" class="icons" @click="signup = !signup" v-show="login && !signup" :style="{ color: 'rgb(76, 255, 133)' }" />
 
-      <Icon icon="line-md:account-delete" class="icons" @click="signup = !signup" v-show="signup" :style="{ color: 'rgb(255, 72, 72)' }" />
+      <Icon icon="line-md:account-delete" class="icons" @click="signup = !signup, login = false" v-show="signup" :style="{ color: 'rgb(255, 72, 72)' }" />
 
 
       <input v-show="signup" type="text" placeholder="Name" class="input" v-model="name">
@@ -203,7 +203,11 @@ export default {
       this.mail = "";
       this.password = "";
       this.confirm = "";
-      this.token = "Bearer";
+      this.token = "";
+
+      this.current.currentToken(null);
+      this.current.currentAuth(false);
+      this.current.currentUser(null);
 
     }
 

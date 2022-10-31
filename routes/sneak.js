@@ -62,6 +62,31 @@ router.post('/sneakersname', (req, res) => {
     
 })
 
+router.post('sneakerbyuser', (req, res) => {
+    
+        Sneaker.findAll({
+            where: {
+                user_id: req.body.user_id
+            }
+        }).then(sneakers => {
+            res.send(sneakers)
+        }, (err) => {
+            res.status(500).send(err.message)
+        })
+    
+})
+
+router.post('/cart', (req, res) => {
+    
+        console.log(req.body)
+        Cart.create(req.body).then(cart => {
+            res.send(cart)
+        }, (err) => {
+            res.status(500).send(err.message)
+        })
+    
+})
+
 
 
 

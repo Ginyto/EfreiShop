@@ -18,7 +18,7 @@ export const useSneakersStore = defineStore("sneaker", {
 
     },
 
-    // persist: true
+    persist: true
 
 })
 

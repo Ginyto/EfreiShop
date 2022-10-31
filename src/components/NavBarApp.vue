@@ -10,7 +10,7 @@
 
       <div id="routers">
         <router-link to="/"> Home <Icon icon="line-md:home"></Icon> </router-link>
-        <router-link to="/cart">Cart</router-link>
+        <router-link to="/cart">Cart {{cart.getqte}}</router-link>
       </div>
 
     </nav>
@@ -25,6 +25,8 @@ import { Icon } from '@iconify/vue';
 
 import AuthApp from './AuthApp.vue';
 
+import { useCartStore } from "../store/cart";
+
 export default {
 
   name: "navbar",
@@ -34,7 +36,7 @@ export default {
   data() {
       
     return {
-      
+      cart : useCartStore()
     };
   },
     

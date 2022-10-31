@@ -44,10 +44,12 @@
 
 import { useSneakersStore } from "../store/sneakers";
 import { useCartStore } from "../store/cart";
+import { useCurrentStore } from "../store/current";
 
 
 const store = useSneakersStore();
 const cart = useCartStore();
+const current = useCurrentStore();
 
 
 export default {
@@ -93,11 +95,18 @@ export default {
 
       console.log("addToCart");
 
-      for (let i = 0; i < this.sneak.qte; i++) {
-        cart.addProductToCart(this.sneak);
-      }
+      if (current.current != null) {
 
-      console.log(cart.getcart);
+        for (let i = 0; i < this.sneak.qte; i++) {
+          cart.addProductToCart(this.sneak, current.current);
+        }
+
+        console.log(cart.getcart);
+
+      }else{
+        console.log("not connected");
+        alert("You must be connected !");
+      }
 
     }
 

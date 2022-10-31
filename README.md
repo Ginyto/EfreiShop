@@ -22,9 +22,11 @@ npm run dev
 ####   Détails sur certaines fonctionnalités pas demandé
 - Nous avons crééer un backend complet 
 - Le back end et le site web sont hébergé en ligne
-
-
+- Integration des store pinia
+- Intégration de plugins icons et autoanimate
 
 
 ##### lien vers le dépôt GIT :
+
+
 
