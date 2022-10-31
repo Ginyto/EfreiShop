@@ -5,6 +5,11 @@ import { Icon } from '@iconify/vue'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import axios from 'axios'
+
+axios.defaults.headers = {
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+};
 
 const app = createApp(App)
 const pinia = createPinia()

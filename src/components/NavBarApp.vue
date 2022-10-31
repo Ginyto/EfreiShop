@@ -6,7 +6,7 @@
 
       <AuthApp />
 
-      <h1>EfreiShop</h1>
+      <h1 @click="this.$router.push('/')" >EfreiShop</h1>
 
       <div id="routers">
         <router-link to="/">Home</router-link>
@@ -14,10 +14,6 @@
       </div>
 
     </nav>
-    
-    <div id="searchbar">
-      <input type="text" placeholder="Search..." />
-    </div>
 
   </div>
 
@@ -28,14 +24,24 @@ import AuthApp from './AuthApp.vue';
 
 
 export default {
-    name: "Test",
-    created() { },
-    data() {
-        return {};
-    },
-    props: {},
-    methods: {},
-    components: { AuthApp }
+
+  name: "navbar",
+    
+  created() { },
+    
+  data() {
+      
+    return {
+      
+    };
+  },
+    
+  props: {},
+    
+  methods: {},
+    
+  components: { AuthApp }
+
 };
 
 </script>
@@ -49,6 +55,7 @@ h1 {
     margin: 0;
     padding: 0;
     margin-left: 1em;
+    cursor: pointer;
 }
 
 #topzone{
@@ -109,29 +116,4 @@ a.router-link-exact-active{
   border: white solid 1px;
 }
 
-
-#searchbar {
-  height: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: aqua; */
-  margin-bottom: 2vh;
-}
-  
-#searchbar input {
-  width: 50%;
-  height: 4vh;
-  border-radius: 1vh;
-  border: none;
-  padding: 0 1vh;
-}
-  
-#loupe {
-  width: 4vh;
-  height: 4vh;
-  color: white;
-  border-radius: 1vh;
-  padding: 0.3vh;
-}
 </style>

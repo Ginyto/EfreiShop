@@ -9,7 +9,11 @@
     <div id="info">
 
       <div id="sectinfo">
-        
+
+        <div id="brand">{{ sneak.brand}}</div>
+        <div id="name">{{ sneak.name}}</div>
+        <div id="color">{{ sneak.color}}</div>
+        <div id="price">{{ sneak.price}}＄ </div>
         
       </div>
 
@@ -33,7 +37,7 @@
           <button id="moins" @click="moins">
             <Icon icon="line-md:minus-circle-twotone"></Icon>
           </button>
-          <div id="quantite">{{ qte }}</div>
+          <div id="quantite">{{ sneak.qte }}</div>
           <button id="plus" @click="plus">
             <Icon icon="line-md:plus-circle-twotone"></Icon>
           </button>
@@ -41,8 +45,6 @@
         <button id="btnadd">Add to cart <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
       </div>
     </div>
-
-    <!-- <SectionComs /> -->
 
   </div>
 
@@ -58,14 +60,15 @@ export default {
 
   name: "SneakerVue",
 
-  created() { },
+  created() {
+    console.log(this.sneak);
+  },
   
   data() {
     return {
-      qte: 1,
+      sneak : store.getsneak,
 
       images: store.getsneak.images.split('§')
-
     };
   },
 
@@ -74,6 +77,16 @@ export default {
   },
 
   methods: {
+
+    plus() {
+      this.sneak.qte++;
+    },
+
+    moins() {
+      if (this.sneak.qte > 1) {
+        this.sneak.qte--;
+      }
+    },
     
   },
 
@@ -85,8 +98,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 img{
-  width: 60vh;
+  width: 40vh;
   border-radius: 1vh;
 }
 
@@ -99,11 +113,13 @@ img{
   align-items: center;
 
   flex-wrap: wrap;
+
+  margin: 2vh 0;
 }
 
 #itemzone {
   width: 100vw;
-  border: solid 1px rgb(242, 96, 96);
+  /* border: solid 1px rgb(242, 96, 96); */
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;

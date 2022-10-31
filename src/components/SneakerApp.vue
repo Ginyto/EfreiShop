@@ -29,7 +29,7 @@
       <div id="sectbtn">
         <div id="plusmoins">
           <button id="moins" @click="moins"> <Icon icon="line-md:minus-circle-twotone"></Icon> </button>
-            <div id="quantite">{{qte}}</div>
+            <div id="quantite">{{sneak.qte}}</div>
           <button id="plus" @click="plus"> <Icon icon="line-md:plus-circle-twotone"></Icon> </button>
         </div>
         <button id="btnadd">Add to cart  <Icon icon="ic:round-shopping-cart-checkout"></Icon></button>
@@ -55,8 +55,6 @@ export default {
   data() {
     return {
 
-      qte: 1,
-
       images : this.sneak.images.split('§')
 
     };
@@ -69,12 +67,12 @@ export default {
   methods: {
 
     plus(){
-      this.qte++
+      this.sneak.qte++;
     },
 
     moins(){
-      if(this.qte > 1){
-        this.qte--
+      if(this.sneak.qte > 1){
+        this.sneak.qte--;
       }
     },
 
@@ -107,8 +105,8 @@ img{
 
 
 #sneakzone {
-  width: 24vw;
-  height: 66vh;
+  width: fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   border: 2px solid rgb(255, 255, 255);

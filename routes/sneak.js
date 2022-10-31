@@ -37,6 +37,32 @@ router.get('/sneakers', (req, res) => {
 
 })
 
+router.post('/sneakersname', (req, res) => {
+
+    console.log(req.body.name)
+    
+    Sneaker.findAll({
+
+        where: {
+
+            [Op.or]: [
+                { name: { [Op.like]: `%${req.body.name}%` } },
+                { brand: { [Op.like]: `%${req.body.name}%` } },
+                { color: { [Op.like]: `%${req.body.name}%` } },
+            ]
+        }
+
+    }).then(sneakers => {
+        res.send(sneakers)
+            
+        
+    }, (err) => {
+        res.status(500).send(err.message)
+    })
+    
+})
+
+
 
 
 
