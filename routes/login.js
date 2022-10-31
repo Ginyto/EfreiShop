@@ -11,7 +11,6 @@ const { Op } = require("sequelize");
 
 //Importing the models
 const { User } = require('../sequelize');
-const { Sneaker } = require('../sequelize');
 
 
 
@@ -31,14 +30,13 @@ router.get('/', (req, res) => {
 //LOGIN
 router.post('/signup', (req, res) => {
 
-    bcrypt.hash(req.query.password, 10).then(hash => {
+    bcrypt.hash(req.body.password, 10).then(hash => {
 
         User.create({
 
-            name: req.query.name,
+            name: req.body.name,
             password: hash,
-            lastname: req.query.lastname,
-            mail: req.query.mail,
+            mail: req.body.mail,
             
 
         }).then(user => {

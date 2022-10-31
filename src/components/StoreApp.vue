@@ -2,6 +2,9 @@
 
   <div id="searchbar">
 
+
+    <Icon icon="line-md:search-twotone" class="icons" />
+
     <input type="text" placeholder="Search..." @keyup="looking($event)" />
 
   </div>
@@ -21,6 +24,7 @@
 <script>
 import SneakerApp from './SneakerApp.vue';
 import axios from 'axios';
+import { Icon } from '@iconify/vue';
 
 export default {
 
@@ -90,13 +94,12 @@ export default {
 
   },
 
-  components: { SneakerApp },
+  components: { SneakerApp, Icon },
 
 };
 </script>
 
 <style lang="css" scoped>
-
 h1{
   color: white;
 }
@@ -137,4 +140,9 @@ h1{
   padding: 0.3vh;
 }
 
+.icons {
+  font-size: 3vh;
+  color: white;
+  margin-right: 1vh;
+}
 </style>

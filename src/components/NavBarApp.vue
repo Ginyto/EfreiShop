@@ -9,7 +9,7 @@
       <h1 @click="this.$router.push('/')" >EfreiShop</h1>
 
       <div id="routers">
-        <router-link to="/">Home</router-link>
+        <router-link to="/"> Home <Icon icon="line-md:home"></Icon> </router-link>
         <router-link to="/cart">Cart</router-link>
       </div>
 
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { Icon } from '@iconify/vue';
 import AuthApp from './AuthApp.vue';
 
 
@@ -40,7 +41,7 @@ export default {
     
   methods: {},
     
-  components: { AuthApp }
+  components: { AuthApp, Icon }
 
 };
 
@@ -52,10 +53,13 @@ h1 {
     font-size: 2.5em;
     font-weight: 600;
     color: rgb(255, 255, 255);
-    margin: 0;
-    padding: 0;
-    margin-left: 1em;
     cursor: pointer;
+
+    position: fixed;
+    top: 1%;
+    left: 44.4%;
+
+
 }
 
 #topzone{
@@ -67,6 +71,7 @@ h1 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-top: 1vh;
 
 }
 
