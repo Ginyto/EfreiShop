@@ -50,6 +50,7 @@ export default {
   name: "Sneaker",
 
   created() {
+    
   },
   
   data() {

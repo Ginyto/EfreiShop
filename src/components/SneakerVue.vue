@@ -2,8 +2,7 @@
   <div id="itemzone">
 
     <div id="images">
-      <img :src="images[0]" alt="image1">
-      <img :src="images[1]" alt="image2">
+      <img v-for="image in images" :src="image" alt="image1">
     </div>
 
     <div id="info">

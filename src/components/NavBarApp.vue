@@ -62,8 +62,8 @@ h1 {
   width: 100%;
   height: fit-content;
   background-color: #222;
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

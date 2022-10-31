@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Test",
+  name: "Footer",
   created() {},
   data() {
     return {};
