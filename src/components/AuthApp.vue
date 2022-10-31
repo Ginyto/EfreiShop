@@ -4,7 +4,9 @@
 
     <div id="login" v-auto-animate >
 
-      <Icon icon="line-md:account" class="icons" @click="login = true" v-show="!login" />
+      <Icon icon="line-md:account" class="icons" @click="login = true" v-show="!login && !auth" />
+
+      <div id="user" @click="logOut()"> {{name}} </div>
 
       <Icon icon="line-md:account-add" class="icons" @click="signup = !signup" v-show="login && !signup" :style="{ color: 'rgb(76, 255, 133)' }" />
 
@@ -19,25 +21,27 @@
 
       <input v-show="signup" type="password" placeholder="Confirm" class="input" v-model="confirm">
 
-      <Icon v-show="login && !signup" icon="line-md:chevron-double-right" class="icons" @click="login = false, signup = false "  :style="{ color: 'rgb(76, 255, 133)' }" />
+      <Icon v-show="login && !signup" icon="line-md:chevron-double-right" class="icons" @click="loginUser()"  :style="{ color: 'rgb(76, 255, 133)' }" />
 
       <Icon v-show="login && signup" icon="line-md:upload-loop" class="icons" @click="signUser()" :style="{ color: 'rgb(76, 255, 133)' }" />
 
     </div>
-
-
   </div>
   
 </template>
 
 
-<script>
+<script >
 
-import { Icon } from '@iconify/vue';
 import axios from 'axios';
 
+import { Icon } from '@iconify/vue';
+
+import { useCurrentStore } from "../store/current";
 
 export default {
+
+  name: "AuthApp",
 
   created() { },
 
@@ -49,11 +53,15 @@ export default {
 
       login: false,
       signup: false,
+      auth: false,
 
       name: "",
       mail: "",
       password: "",
-      confirm: ""
+      confirm: "",
+      token: "",
+
+      current : useCurrentStore()
     }
 
   },
@@ -74,10 +82,17 @@ export default {
 
           console.log(response.data);
 
-          if (response.sign == true) {
+          if (response.data.sign == true) {
 
             this.login = false;
             this.signup = false;
+
+            alert("User " + this.name + " created");
+
+            this.name = "";
+            this.mail = "";
+            this.password = "";
+            this.confirm = "";
 
           }
           else {
@@ -110,19 +125,86 @@ export default {
         } else if (this.confirm == "") {
 
           alert("Please confirm your password");
-
         }
-
         else if (this.password != this.confirm) {
 
           alert("Passwords don't match");
+          this.password = "";
+          this.confirm = "";
+        }
+
+      }
+  
+    },
+
+    async loginUser() {
+
+      if (this.mail && this.password != "") {
+
+        await axios.post(this.url + 'login', {
+
+          mail: this.mail,
+          password: this.password
+
+        }).then(response => {
+
+          console.log(response.data);
+
+          if (response.data.auth == true) {
+
+            this.login = false;
+            this.signup = false;
+            this.token += response.data.token;
+            this.name = response.data.user.name;
+            this.auth = true;
+
+
+            this.current.currentToken("Bearer " + this.token);
+            this.current.currentAuth(true);
+            this.current.currentUser(response.data.user);
+
+          }
+          else {
+
+            alert("Please check your mail or password");
+            this.mail = "";
+            this.password = "";
+
+          }
+
+        }).catch(error => {
+
+          console.log(error);
+
+        });
+
+      } else {
+
+        if (this.mail == "") {
+
+          alert("Please enter a mail");
+
+        } else if (this.password == "") {
+
+          alert("Please enter a password");
 
         }
 
       }
-    
 
-  
+    },
+
+    logOut() {
+
+      this.login = false;
+      this.signup = false;
+      this.auth = false;
+      this.name = "";
+      this.mail = "";
+      this.password = "";
+      this.confirm = "";
+      this.token = "Bearer";
+
     }
 
   },
@@ -157,6 +239,17 @@ export default {
   flex-wrap: wrap;
 }
 
+#user{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#user:hover{
+  color: rgb(255, 72, 72);
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .icons {
   font-size: 3vh;
   
@@ -173,6 +266,4 @@ export default {
   background-color: rgb(255, 255, 255);
   color: #222;
 }
-
-
 </style>

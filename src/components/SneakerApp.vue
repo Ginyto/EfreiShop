@@ -45,8 +45,10 @@
 import { useSneakersStore } from "../store/sneakers";
 import { useCartStore } from "../store/cart";
 
+
 const store = useSneakersStore();
 const cart = useCartStore();
+
 
 export default {
   name: "Sneaker",

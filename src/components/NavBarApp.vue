@@ -20,9 +20,10 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue';
-import AuthApp from './AuthApp.vue';
 
+import { Icon } from '@iconify/vue';
+
+import AuthApp from './AuthApp.vue';
 
 export default {
 

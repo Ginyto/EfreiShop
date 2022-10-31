@@ -52,8 +52,8 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
 
-    const mail = req.query.mail
-    const mdp = req.query.password
+    const mail = req.body.mail
+    const mdp = req.body.password
 
 
     User.findOne({

@@ -13,7 +13,6 @@ axios.defaults.headers = {
 
 const app = createApp(App)
 const pinia = createPinia()
-
 pinia.use(piniaPluginPersistedstate)
 
 app.use(router)
